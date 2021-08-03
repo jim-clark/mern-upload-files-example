@@ -8,7 +8,7 @@ export async function signUp(userData) {
     const token = await usersAPI.signUp(userData);
     // Persist the token
     localStorage.setItem('token', token);
-    return token;
+    return getUser();
   } catch {
     throw new Error('Invalid Sign Up');
   }
@@ -34,4 +34,18 @@ export function getUser() {
   // If there's a token, return the user object in the payload
   // otherwise return null
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+}
+
+export function logOut() {
+  localStorage.removeItem('token');
+}
+
+export async function login(credentials) {
+  try {
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem('token', token);
+    return getUser();
+  } catch {
+    throw new Error('Invalid Sign Up');
+  }
 }
