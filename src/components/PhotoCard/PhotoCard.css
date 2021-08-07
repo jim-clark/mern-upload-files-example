@@ -1,0 +1,22 @@
+.PhotoCard {
+  display: grid;
+  grid-template-columns: 20vw;
+  grid-template-rows: auto auto;
+}
+
+.PhotoCard div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vmin;
+  color: white;
+  background-color: grey;
+  font-size: 3vmin;
+  padding-bottom: .5vmin;
+}
+
+.PhotoCard img {
+  width: 100%;
+  border: .5vmin solid grey;
+  border-bottom: none;
+}
